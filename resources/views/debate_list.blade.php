@@ -41,87 +41,52 @@
                             <div class="table-responsive">
 
 
-                            <table class="table table-align-middle table-hover table-demo">
-                                <thead>
-                                    <tr>
+                              <table class="table table-align-middle table-hover table-demo">
+                               <thead>
+                                   <tr>
+                                       <th>ID</th>
+                                       <th>
+                                           Title
+                                       </th>
+                                       <th>
+                                           Banner_url
+                                       </th>
 
-                                        <th>
-                                            Captain
-                                        </th>
-                                        
-                                        <th>
-                                            Crew Size
-                                        </th>
-                                        <th>
-
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                                <img src="http://via.placeholder.com/500x500" alt="" class="img-thumb-xs img-circle"> Cricket
-                                        </td>
+                                       <th>
+                                          Expiry Date
+                                       </th>
                                        
-                                        <td>
-                                            <span class="label label-success label-chip">10</span>
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-primary btn-sm " href="{{route('image_status_list')}}"> VIEW</a>
+                                       <th>
 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="http://via.placeholder.com/500x500" alt="" class="img-thumb-xs img-circle"> Politics
-                                        </td>
-                                        
-                                        <td>
-                                                <span class="label label-warning label-chip">6</span>
-                                        </td>
-                                        <td>
-                                           <a class="btn btn-primary btn-sm " href="{{route('image_status_list')}}"> VIEW</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="http://via.placeholder.com/500x500" alt="" class="img-thumb-xs img-circle"> GST
-                                        </td>
-                                        
-                                        <td>
-                                                <span class="label label-info label-chip">8</span>
-                                        </td>
-                                        <td>
+                                       </th>
+                                       <th>
+                                           
+                                       </th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+                                       @foreach($records as $class)
+                                   <tr>
+                                       <td>{{$class->id}}</td>
+                                       <td>
+                                             {{$class->title}}
+                                       </td>
+                                       <td>
+                                           {{$class->banner_url}}
+                                       </td>
+
+                                       <td>
+                                           {{ $class->expiry_date }}
+                                       </td>
+                                       
+                                      <td>
                                             <a class="btn btn-primary btn-sm " href="{{route('image_status_list')}}"> VIEW</a>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="http://via.placeholder.com/500x500" alt="" class="img-thumb-xs img-circle"> FIFA Under 17 World Cup
-                                        </td>
                                        
-                                        <td>
-                                                <span class="label label-success label-chip">10</span>
-                                        </td>
-                                        <td>
-                                           <a class="btn btn-primary btn-sm " href="{{route('image_status_list')}}"> VIEW</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="http://via.placeholder.com/500x500" alt="" class="img-thumb-xs img-circle"> Gujarat Election
-                                        </td>
-                                       
-                                        <td>
-                                                <span class="label label-danger label-chip">2</span>
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-primary btn-sm " href="{{route('image_status_list')}}"> VIEW</a>
-                                        </td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
+                                   </tr>
+                                        @endforeach
+                               </tbody>
+                           </table>
                             </div>
                         </div>
                         <!-- /.panel-body -->

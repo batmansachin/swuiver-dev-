@@ -49,6 +49,10 @@
                                     <label for="name">Image_url:</label>
                                     <input class="form-control" name="image_url" type="text" id="name">
                                 </div>
+                                <div class="input-field col s12">
+                                    <label for="name">Debate_action_id :-</label>
+                                    <input class="form-control" name="debate_action_id" type="text" id="name">
+                                </div>
                                 
                                 <div class="row">
                                     <div class="input-field col s12">

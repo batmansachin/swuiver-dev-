@@ -34,10 +34,10 @@
 
                         <div class="panel-heading">
                         	<h4 class="header2" style="font-weight: bold">
-                                ADD NEW HEALTH CONDITION
+                                ADD NEW TOPICS
                             </h4>
                             
-                             <form method="POST" action="{{route('submitquery_topics')}}" accept-charset="UTF-8" class="col s12">
+                             <form method="POST" action="{{route('add_topics')}}" accept-charset="UTF-8" class="col s12">
                               {{ csrf_field() }} 
                           
                                 <div class="input-field col s12">

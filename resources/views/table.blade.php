@@ -25,7 +25,7 @@
               <li><a href="#">Home</a></li>
               <li class="active">Tables</li>
             </ol>
-            <a style="float:right" class="btn btn-primary btn-sm " href="{{route('add_topics')}}"> ADD MORE TOPICS</a>
+            <a style="float:right" class="btn btn-primary btn-sm " href="{{route('')}}"> ADD MORE TOPICS</a>
         </header>
         <div class="page-content">
         <div class="container-fluid">
@@ -42,86 +42,65 @@
 
 
                             <table class="table table-align-middle table-hover table-demo">
-                                <thead>
-                                    <tr>
+                               <thead>
+                                   <tr>
+                                       <th>
+                                         ID
+                                       </th>
+                                       <th>
+                                           Name
+                                       </th>
+                                       <th>
+                                           Image_url
+                                       </th>
 
-                                        <th>
-                                            Captain
-                                        </th>
-                                        
-                                        <th>
-                                            Crew Size
-                                        </th>
-                                        <th>
-
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                                <img src="http://via.placeholder.com/500x500" alt="" class="img-thumb-xs img-circle"> Cricket
-                                        </td>
+                                       <th>
+                                           Date &amp; time
+                                       </th>
                                        
-                                        <td>
-                                            <span class="label label-success label-chip">10</span>
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-primary btn-sm " href="{{route('image_status_list')}}"> VIEW</a>
+                                       <th>
 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="http://via.placeholder.com/500x500" alt="" class="img-thumb-xs img-circle"> Politics
-                                        </td>
-                                        
-                                        <td>
-                                                <span class="label label-warning label-chip">6</span>
-                                        </td>
-                                        <td>
-                                           <a class="btn btn-primary btn-sm " href="{{route('image_status_list')}}"> VIEW</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="http://via.placeholder.com/500x500" alt="" class="img-thumb-xs img-circle"> GST
-                                        </td>
-                                        
-                                        <td>
-                                                <span class="label label-info label-chip">8</span>
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-primary btn-sm " href="{{route('image_status_list')}}"> VIEW</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="http://via.placeholder.com/500x500" alt="" class="img-thumb-xs img-circle"> FIFA Under 17 World Cup
-                                        </td>
-                                       
-                                        <td>
-                                                <span class="label label-success label-chip">10</span>
-                                        </td>
-                                        <td>
-                                           <a class="btn btn-primary btn-sm " href="{{route('image_status_list')}}"> VIEW</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="http://via.placeholder.com/500x500" alt="" class="img-thumb-xs img-circle"> Gujarat Election
-                                        </td>
-                                       
-                                        <td>
-                                                <span class="label label-danger label-chip">2</span>
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-primary btn-sm " href="{{route('image_status_list')}}"> VIEW</a>
-                                        </td>
-                                    </tr>
+                                       </th>
+                                       <th>
+                                           
+                                       </th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+                                       @foreach($records as $record)
+                                   <tr>
+                                        <td>{{$record->id}}</td>record
+                                       <td>
+                                             {{$record->name}}
+                                       </td>
+                                       <td>
+                                           {{$record->image_url}}
+                                       </td>
 
-                                </tbody>
-                            </table>
+                                       <td>
+                                           {{ $record->created_at }}
+                                       </td>
+                                       
+                                      <td>
+                                            <a class="btn btn-primary btn-pill" href="{{route('image_status_list')}}"> VIEW</a>
+                                        </td>
+                                        <td>
+                                           <a class="btn btn-primary btn-pill " href="{{ route('master-topic.edit', ['master_topic' => $record->id]) }}">Edit</a>
+                                       </td>
+                                       <td>
+                                            <form action="{{ route('master-topic.destroy',['master_topic' => $record->id]) }}" method="POST" >
+                                                {{ csrf_field() }}
+                                                {{ method_field('DELETE') }}
+                                                <button class="btn btn-danger btn-pill" onclick="">Delete</button>
+                                            </form>
+                                           <!-- <a class="btn btn-primary btn-pill " href="">Delete</a> -->
+                                       </td>
+                                       
+                                       
+                                   </tr>
+                                        @endforeach
+                               </tbody>
+                           </table>
                             </div>
                         </div>
                         <!-- /.panel-body -->

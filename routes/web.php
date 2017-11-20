@@ -16,7 +16,10 @@ Route::get('/image_status_list','SiteController@image_status_list')->name('image
 Route::get('/album_form','SiteController@album_form')->name('album_form');
 Route::get('/add_topics','SiteController@add_topics')->name('add_topics');
 Route::post('/submitquery','SiteController@submitquery')->name('submitquery');
-Route::post('/submitquery_topics','MasterTopicsController@submitquery_topics')->name('submitquery_topics');
+
+
+//MasterTopicsController
+Route::post('/add_topics','MasterTopicsController@create')->name('create');
 
 //Debate related query
 Route::get('/debate_list','DebatesController@debate_list')->name('debate_list');
@@ -27,6 +30,8 @@ Route::post('/submitQuery_debate_argument','DebatesController@submitQuery_debate
 
 Route::get('/User_profile','UserController@User_profile')->name('User_profile');
 Route::post('/submitQuery_User_profile','UserController@submitQuery_User_profile')->name('submitQuery_User_profile');
+
+Route::resource('/master-topic','MasterTopicsController');
 
 //Route::get('/panels','SiteController@panels')->name('panels');
 //Route::get('dashbord', 'DashbordController@index');

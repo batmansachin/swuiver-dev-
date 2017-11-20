@@ -13,7 +13,11 @@ class UserController extends Controller
     }
     public function submitQuery_User_profile(Request $Request){
 
-    	
+    	$mp = new App\UserProfile();
+    	$mp->FirstName = $Request->firstname;
+    	$mp->LastName = $Request->lastname;
+    	$mp->save();
+    	return redirect('/');
     }
 
     

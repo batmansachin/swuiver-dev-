@@ -13,7 +13,9 @@ class SiteController extends Controller
     }
     
     public function table(){
-    	return view('table');
+        $records = DB::table('master_topics')->get();
+        //dd($records->all());
+    	return view('table')->with('records',$records);
     }
    	public function image_status_list(){
     	return view('image_status_list');

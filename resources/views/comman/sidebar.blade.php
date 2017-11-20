@@ -71,7 +71,7 @@
                 
             </li>
              <li>
-                <a href="{{ route('table') }}" class="has-arrow">
+                <a href="{{ route('master-topic.index') }}" class="has-arrow">
                     <span class=""></span>
                     <i class="mdi mdi-layers"></i><span class="title">Topics</span>
 

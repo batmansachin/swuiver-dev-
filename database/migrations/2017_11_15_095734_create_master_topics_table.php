@@ -16,11 +16,14 @@ class CreateMasterTopicsTable extends Migration
         Schema::create('master_topics', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            //$table->string()//for slug
+            $table->string('slug');
             $table->text('image_url');
+            $table->integer('status');
             $table->integer('added_by');
             $table->integer('updated_by')->default(20);
             $table->timestamps();
+            $table->softDeletes();
+            
         });
     }
 

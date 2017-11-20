@@ -34,22 +34,39 @@
 
                         <div class="panel-heading">
                         	<h4 class="header2" style="font-weight: bold">
-                                ADD NEW USER INFORMATION
+                                ADD NEW TOPICS
                             </h4>
                             
-                             <form method="POST" action="{{route('submitQuery_User_profile')}}" accept-charset="UTF-8" class="col s12">
+                             <form method="POST" action="{{is_null($masterTopic) ? route('master-topic.store') : route('master-topic.update',['master_topic' => $masterTopic->id])}}" accept-charset="UTF-8" class="col s12">
                               {{ csrf_field() }} 
+                              @if(is_null($masterTopic))
+                                {{ method_field('POST') }}
+                              @else 
+                                {{ method_field('PUT') }}
+                              @endif
                           
                                 <div class="input-field col s12">
-                                    <label for="name">FirestName:</label>
-                                    <input class="form-control" name="firstname" type="text" id="name">
+                                    <label for="name">Name:</label>
+                                    <input class="form-control" name="name" type="text" id="name">
                                 </div>
                         
                                 <div class="input-field col s12">
-                                    <label for="name">LastName:</label>
-                                    <input class="form-control" name="lastname" type="text" id="name">
+                                    <label for="name">Image url:</label>
+                                    <input class="form-control" name="image_url" type="text" id="name">
                                 </div>
-                                <br>
+                                <div class="input-field col s12">
+                                    <label for="name">Status :</label>
+                                    <input class="form-control" name="status" type="text" id="name">
+                                </div>
+                                <div class="input-field col s12">
+                                    <label for="name">Added By:</label>
+                                    <input class="form-control" name="added_by" type="text" id="name">
+                                </div>
+                                <div class="input-field col s12">
+                                    <label for="name">Updated By:</label>
+                                    <input class="form-control" name="updated_by" type="text" id="name">
+                                </div>
+                                
                                 <div class="row">
                                     <div class="input-field col s12">
                                         <input class="btn btn-primary pull-right" type="submit" value="Add Lesion Status">
